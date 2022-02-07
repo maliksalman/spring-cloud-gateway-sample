@@ -1,0 +1,10 @@
+---
+applications:
+  - name: samalik-gateway
+    path: build/libs/spring-cloud-gateway-sample-1.0.jar
+    memory: 1G
+    instances: 1
+    buildpacks:
+      - java_buildpack_offline
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+}}'

@@ -1,0 +1,21 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.6'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.smalik'
+version = '1.0'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation platform('org.springframework.cloud:spring-cloud-dependencies:2020.0.4')
+    implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
+
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+}
