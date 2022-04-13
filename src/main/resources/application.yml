@@ -1,16 +1,19 @@
-server:
-  port: 9393
 spring:
   cloud:
     gateway:
       routes:
         - id: heroes-service
-          uri: http://localhost:8080
+          uri: http://localhost:8181
           predicates:
             - Path=/heroes/**
+            - Method=GET
         - id: httpbin
           uri: https://httpbin.org
           predicates:
             - Path=/httpbin/**
           filters:
             - StripPrefix=1
+        - id: hello
+          uri: http://localhost:8282
+          predicates:
+            - Path=/hello/**
