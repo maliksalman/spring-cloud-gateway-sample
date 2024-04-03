@@ -1,19 +1,24 @@
+server:
+  port: 9090
+
 spring:
+  application:
+    name: gateway
+  threads:
+    virtual:
+      enabled: true
   cloud:
     gateway:
-      routes:
-        - id: heroes-service
-          uri: http://localhost:8181
-          predicates:
-            - Path=/heroes/**
-            - Method=GET
-        - id: httpbin
-          uri: https://httpbin.org
-          predicates:
-            - Path=/httpbin/**
-          filters:
-            - StripPrefix=1
-        - id: hello
-          uri: http://localhost:8282
-          predicates:
-            - Path=/hello/**
+      mvc:
+        routes:
+          - id: heroes-service
+            uri: http://localhost:8080
+            predicates:
+              - Path=/heroes/**
+              - Method=GET
+          - id: httpbin
+            uri: https://httpbin.org
+            predicates:
+              - Path=/httpbin/**
+            filters:
+              - StripPrefix=1
