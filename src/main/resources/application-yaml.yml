@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: heroes-service
+            uri: http://localhost:8080
+            predicates:
+              - Path=/heroes/**
+              - Method=GET,POST
+          - id: httpbin
+            uri: https://httpbin.org
+            predicates:
+              - Path=/httpbin/**
+              - Method=GET,POST,DELETE
+            filters:
+              - StripPrefix=1
+              - AddRequestHeader=header-1, values-1
+              - AddRequestHeader=header-2, values-2
+              - AddRequestHeader=header-3, values-3
+              - AddRequestHeader=header-4, values-4

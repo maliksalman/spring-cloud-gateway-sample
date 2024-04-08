@@ -17,9 +17,9 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-undertow'
-
 	implementation platform('org.springframework.cloud:spring-cloud-dependencies:2023.0.1')
 	implementation('org.springframework.cloud:spring-cloud-starter-gateway-mvc') {
 		exclude group:'org.springframework.boot', module:'spring-boot-starter-tomcat'
 	}
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 }

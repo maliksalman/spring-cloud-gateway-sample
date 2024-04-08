@@ -7,18 +7,3 @@ spring:
   threads:
     virtual:
       enabled: true
-  cloud:
-    gateway:
-      mvc:
-        routes:
-          - id: heroes-service
-            uri: http://localhost:8080
-            predicates:
-              - Path=/heroes/**
-              - Method=GET
-          - id: httpbin
-            uri: https://httpbin.org
-            predicates:
-              - Path=/httpbin/**
-            filters:
-              - StripPrefix=1
